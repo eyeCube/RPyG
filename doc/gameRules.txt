@@ -1,0 +1,104 @@
+
+Attacking
+	-When you attack with a unit, a melee attack or ranged attack is performed depending on the weapon the unit attacks with.
+	-Melee attack:
+		-When you attack with an infantry unit, its Movement Points are reduced to 0.
+			-Mounted units can move after attacking if they perform a charging strike.
+		-The number of times a unit can attack in one turn depends on its speed.
+			Speed:
+			0 speed: 1 hit
+			1-19 speed: 1-2 hits (more likely to do more hits if you have more speed)
+			20-39 speed: 2-3 hits (more likely to do more hits if you have more speed)
+			etc....
+		-For each time that the unit attacks, do the following:
+		-First roll for accuracy.
+			-If roll 100 is lower than the Acc value, unit aims true (but may still not hit target).
+			-Acc is the Accuracy w/ melee value of the attacker, since this is a melee attack.
+		-Defender tries to parry.
+			-If roll 100 is lower than defender's parry value, defender parries the attack.
+			-If successful in parrying, defender tries to counter.
+				-If roll 100 is lower than defender's counter value, defender counters.
+				-When defender counters, he gets a free strike on the attacker that cannot miss.
+				-Countering cuts the attacker's chain of attacks short, so they cannot attack again even if they would have because of their speed.
+		-Defender's adjacent allies try to parry for him.
+			-If defender unsuccessful in parrying, his allies may do the above step for him instead, and an adjacent ally may get off a free counter-attack.
+		-Defender attempts to evade the attack.
+			-If roll 100 is lower than defender's evasion value, defender evades and takes no damage.
+			-If the attacker has more than 100 Accuracy, then before this roll is calculated, the defender's Eva value is modified:
+				-(the attacker's Acc value - 100) is subtracted from the Eva value.
+				-This Eva cut cannot cut the Eva value by more than half.
+		-If none of the above occur, a strike is performed against the defender by the attacker.
+		-A Strike works as follows:
+		-First, the defender attempts to Block the strike.
+			-First try to block with the offhand, then if that fails, with the mainhand.
+			-If roll 100 is lower than defender's Block value, block is successful.
+			-Block value is Block w/ melee, since this is a melee attack.
+			-If block is successful, strike still occurs, but damage is reduced by the defender's blocking gear's defense values.
+		-Defender's adjacent allies try to block for him.
+		-Next a target body part is chosen:
+			-Chance of hitting each body part is, for the most part, set.
+			-10% arms, 10% legs, 5% head, remainder torso.
+			-Exception: if unit is wearing no torso armour but is wearing armour on the arms, the chance of hitting the arms is increased by 250% (which also reduces chance to hit the torso)
+		-Defense and protection values are taken from the body part that's targeted
+		-Next the attacker attempts to perform a critical hit.
+			-If roll 100 is lower than defender's Protection value, crit hit is performed.
+			-Before this calculation, Protection value is reduced by the attacker's Crit value.
+			-Successful crit. hits cut the defender's Defense values on the targeted body part in half.
+		-Shock and pierce damage are taken from the attacker's weapon, and subtracted from the defender's Defense values.
+			-Shock and pierce attack are added on to by general Attack value.
+			-Shock and pierce defense are added on to by general Defense value.
+		-Finally the defender takes damage based on the calculations above.
+		
+		
+Status Effects:
+	Blinded
+		Duration: 5
+		vision reduced to 1
+		accuracy cut by 75%
+	Bleeding
+		Duration: 5
+		take 1 damage per turn
+	Dazed
+		Duration: 3
+		unit suffers -50% Acc, -50% Eva
+	K.O.'d
+		Duration: inf. Saving throw End
+		unit cannot perform any actions
+		all incoming attacks are crits
+		unit has -2 Def
+	Cold
+		Duration: 10
+		unit suffers -50% Spd, -50% Mob, -50% Eva
+	Freezing
+		Duration: 20
+		unit cannot perform any actions
+		unit suffers 1 damage per turn
+	Hot
+		Duration: 10
+		unit suffers 1 damage every time he moves or attacks
+	Burning
+		Duration: inf.
+		unit becomes confused
+		unit suffers 1 damage per turn
+		unit can put out fire by submerging in water or getting prone/supine.
+	Confused
+		Duration: 5. Saving throw Int + Wil.
+		unit acts on his own volition, moving randomly about.
+	Poisoned
+		Duration: 50
+		unit has a chance to vomit, wasting his turn. Saving throw Physical Res.
+		Vomit deals 1 poison dmg to one adjacent unit or self
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

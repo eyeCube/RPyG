@@ -1,0 +1,87 @@
+
+<picture>
+Owner	William the Conquerer
+Name	Jake
+Race	Human
+Level	1
+Exp		0
+NextLv	100
+
+HP (healthPts)	29
+Vitality		29
+MP (movePts) 	3
+Mobility 		30
+BP (balancePts)	8
+Poise			12
+
+Vision				9
+Speed				24
+Evasion				36
+
+Accuracy Melee		95
+Accuracy Thrown		40
+Accuracy Ranged		100
+
+~Combat abilities~
+Parry				18
+Parry for Ally		12
+Counter				4
+Bypass Armour		16
+Push				0
+Pull				0
+Stun				0
+Knockdown			0
+Disarm				0
+Dismember			0
+Destroy				0
+Hit adjacent foe	8
+Ignore block		12
+Aim for the head	0
+Deal mortal wound	0
+
+~Resistances~
+Res Magick			4
+Res Physical		8
+Res Heat			8
+Res Cold			8
+Res Charm			4
+
+~Attributes~
+Strength		8
+Agility			8
+Endurance		8
+Perception		4
+Willpower		4
+Intelligence	4
+Charisma		4
+
+~Gear~
+<pictures for each slot>
+<info shown when you hover over pictures>
+Mainhand
+Offhand
+Jewelry
+Head
+Torso
+Arms
+Legs
+	HJ
+   MTO
+    LA
+
+Strength Atk Bonus	4
+Bonus vs Armoured	0
+Bonus vs Unarmoured	0
+
+Max Techniques		4
+Max Technique Lvl	4
+Spell success		0
+
+
+
+atkBalance
+foeBalance
+def
+protect
+
+Charm? Blind?

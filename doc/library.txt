@@ -1,0 +1,32 @@
+
+	
+Library:
+
+
+
+Weapons and their Classifications
+	
+Think of the universe of all weapons as like this university. Within the university there are many different buildings or schools, each with many different classes within each school. And each class contains several different students.
+
+In the same way, the universe of all weapons consists of different categories called schools, which include longswords, short swords, axes, clubs, spears, and many more. Some examples of classes from the school of clubs are: iron mace, spiked club, morning star, and flail.
+
+Finally, each individual weapon is unique, and may have characteristics different from its peers, so pay attention to the unique stats of each weapon! (Here's a hint: The name of the weapon generally gives you a good idea about how it might vary from the other weapons in its class. This leads us naturally into Weapon Modifiers, which consititute those changes that appear in the weapon's name.)
+
+Weapon Modifiers
+
+An example random weapon could have the name:
+"Ayla's lacquered slim sharpened balanced two-handed sword +3"
+
+What does this mean? First we can look from the right and find that the class of weapon is two-handed sword, and the +3 means it has been grinded up to +3, which magically increases the weapon's damage significantly (this is not magic damage, just additional physical damage).
+
+Next we can observe that the first word is a name, "Ayla," which signifies the ownership status of this weapon. [Note: Just like armour, you can fit weapons to your particular body shape, either by physical modification or magical shrinking or growing. Having a weapon that doesn't fit you is less effective, so you should always get your gear fitted; both armour and weapons!]
+
+With the adjectives before the weapon's class name, we can describe the modifiers on the weapon. In this case, these modifiers are: lacquered, slim, sharpened, and balanced. Each of these affects the weapon in different ways.
+
+For examples: getting a weapon or piece of armour "lacquered" makes it resistant to rust. A "slim" weapon was made with less material, making it weaker, but lighter and faster. A "sharpened" weapon has a razor-sharp edge that can instantly cause bleeding on contact with flesh, but it will rapidly degrade when striking armour. Finally, the mod "balanced" means that the weapon will not cause you to lose your balance when you miss a foe.
+
+As you can see, this weapon is highly customized, and Ayla might be glad to have it back in her possession. Customizing weapons is a good way to maximize the use of specific favored skills, and make the most of your style of combat -- but you should keep in mind that not every weapon can be modified with every kind of modifier. A drawback to weapon modification is that it can become very expensive to modify weapons to make them the exact way you want them; so make sure you know what you want before you buy it.*
+
+*For a complete list of weapon modifiers, go to page XXX.
+
+

@@ -1,0 +1,481 @@
+
+
+tones of voice
+	haughty
+	sly
+	meek
+	nice
+	abusive
+
+2-HANDING A 1/2 WEAPON:
+	strength required -1
+	stagger +1
+	defStrike +4
+	acc +10
+	speed +10
+	parry +10
+	grip +25
+	guard +25
+2-handing in general:
+	damage bonus from strength scaling *150%
+	
+	
+Weapon skills:
+	Instead of having skills in schools of weapons characters have skills in specific weapon types.
+		If using a weapon you've never used before, your skill is determined by your skill in other weapons in the same school. If you have training in at least one weapon in the same school, you have C skill in that weapon type.
+	Skills are either C, B, A, or S
+	weapon skills affect all weapon stats
+	May be too complicated....
+
+	
+	
+
+
+To put into excel weapons list (that I skipped):
+	SHIELD ALLY, GUARD ALLY?
+		Maybe guardAlly and shieldAlly not needed. Just normal guard, shield.
+		You can command unit to protect another adjacent friendly unit, which gives the unit a chance to guard or shield attacks that hit their allies.
+		exception: round shield.
+		Maybe have ONE attribute called "protect" or some shit, which refers to the capacity to protect adjacent allies. You only can protect allies if you use the protect command, maybe, to keep things simple.
+			Protect is mostly an attribute of shields.
+	rapiers other than rapier
+	weaps above zweihander
+	crossbows, guns -- reload speed stat??
+	HOW are we gonna do shields in this game???
+	
+To put into armour list:
+	closed bascinet, open
+		how to represent this in game???
+		
+
+
+	
+I don't want to have weapons that are identified solely by their material (bronze sword, etc.) rather the material could be a modifier for any weapon type
+
+#maybe we can use same stats for range as with melee stats.
+#for bows spd = firing speed. Can't melee attack w/ a bow
+
+Crit -> penetration
+Protection -> coverage
+guardAlly, shieldAlly -> protect
+
+
+In this system,	Wearing armour is way better than not wearing armour. There is virtually no downside to wearing at least quilted armour. Being naked makes you extremely vulnerable especially to slashing attacks which can insta-kill with their high damage.
+
+Maybe could have both Critical Hit and Penetration be two separate stats.
+Penetration:
+	Allows you to reduce the defense armour gives; roll against armour coverage values.
+	you can get a double penetration if you roll to penetrate twice. This cuts the defense in half again, to 1/4 of the normal defense the armour provides. The second time you roll to penetrate doubly, add 10 to the enemy's coverage. You cannot triple-penetrate.
+Critical:
+	Allows you to deal extra damage (as a proportion of enemy's max health)
+	When you hit the head you have increased Critical chance
+	Deal additional 20% of enemy max health with criticals
+	Maybe have two stats for crit: Crit chance, and Crit damage multiplier.
+	Crit chance is 0 when attacking limbs
+	
+Maybe reduce strike damage for all weapons, and reduce strike defense on all armours. Make strikes more effective against armour and less to unarmoured due to inferior raw damage, but armours are weakest to strikes.
+
+Thrust
+	+ Penetration
+	+ Bleed
+	++ Critical
+
+Strike
+	-- Penetration
+	+ Dazed
+	- Stick in target
+
+Slash
+	Highest damage
+	- Penetration
+	++ Bleed
+	+ Dismember
+	+ Critical
+	-- Stick in target
+	
+Get rid of unarmoured, armoured bonuses, they aren't needed with this system
+
+
+in getStat function, modify damage for damage scaling on weapons (rather than applying during combat).
+
+
+On your turn you select a command from a menu. Example menu:
+
+Attack
+Techniques
+Equipment
+Idle
+
+In battle, characters can only access items that they have equipped. You can equip shit like potions, etc. You can drop/throw your spear and then pull out your sidearm, then if you lose your sidearm located on your you can pull out your dagger located on your leg,
+
+
+
+Weapons, armour must be sized to your character to be equipped
+Sizes
+	9 Giant
+	8 Massive
+	7 Large
+	6 Normal
+	5 3/4
+	4 Half
+	3 Small
+	2 Tiny
+	1 Miniscule
+Humans in 3/4 to Large range. Dwarves 3/4. Halflings half sized. Small is elves or imps, tiny is sprites, fairies, and miniscule is ant-sized. Massive is for centaur-sized creatures and giant is for giants, twice the size of humans.
+	
+
+
+Attributes
+	Strength
+		Required to wield weapons effectively
+		+ Damage with Str Scaling weapons (most weapons scale w/ strength)
+		+ Accuracy with Melee weapons
+	Dexterity
+		Required to wield weapons effectively
+		+ Damage with Dex Scaling weapons (skill-oriented weapons)
+		+ Accuracy
+		+ Parry
+		+ Penetration
+	Agility
+		+ Spd
+		+ Mob
+		+ Eva
+		+ Acc
+		+ Poise
+	Endurance
+		+ HP
+		+ Physical Resistance
+		+ Def
+	Perception
+		+ Vision
+		+ Penetration
+		+ Acc
+		+ Eva
+	Willpower
+		Required to accept new quests
+		+ Maximum skill level
+		+ Courage
+	Intelligence
+		Required to learn new skills
+		+ Number of skills you can memorize
+		+ identify
+		
+'''
+Charisma
+	Required for certain speech options in conversation
+	+ Bartering
+	+ Damage with Cha Scaling weapons (instruments)
+	+ Party size
+	+ Speech/persuasion/charm
+'''
+
+
+
+
+
+	#instead of all this shit:
+hand1defs
+hand1defp
+hand1blockm
+hand1blockr
+hand1blockAllym
+hand1blockAllyr
+hand2defs
+hand2defp
+hand2blockm
+hand2blockr
+hand2blockAllym
+hand2blockAllyr
+
+	#reduce to:
+blockm #Guard
+blockr #Shield
+blockAllym #Guard ally
+blockAllyr #Shield ally
+blockDefs #Block Def
+blockDefp #Block Def
+
+
+	#simplify in HUD:
+Guard: 60 | 20
+Shield: 50 | 10
+Block Def: 4 / 20
+
+
+
+#Example stats display for a hypothetical weapon
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Viewing item~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+							Jake's Helm Splitter 				
+							
+	Helm Splitter +1						Advantage: 		-2
+	Type:   		Weapon (2H)				Reach: 			1-2
+	Class:			Axe						Attack: 		7 / 9
+	Condition:		282(450)				vs. Armoured 	+2
+	Materials:		iron, wood				Block Def: 		4 / 16
+	Value:			$623					Guard: 			5 | 0
+	Mass:			1.75kg					Shield: 		1 | 0
+	Str Required:	6						Parry: 			4 | 0
+	Dex Required:   4						Counter: 		7
+	Power Scaling:							Accuracy: 		-15
+		Str A								Evasion: 		-9
+		Dex E								Mobility: 		-4
+		Int -								Speed: 			-8
+		Cha -								Push: 			4
+											Destroy:		18
+											
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			
+first title under "Viewing item" is (owner + nickname)		
+official name is top item in the left column, along with current weapon's grind level.
+Type displays the type of equipment and how many hands are used to wield it
+Condition shows current state of weapon and maximum durability
+Power scaling for Instruments could use Cha, magic weapons could use Int scaling.
+	
+	
+Grappling: 		1
+Reach:			1 - 2
+Attack: 		7 / 9
+vs. Armoured 	+2
+Block Def: 		4 / 16
+Guard: 			5 | 0
+Shield: 		1 | 0
+Parry: 			4 | 0
+Counter: 		7
+Accuracy: 		-15
+Evasion: 		-9
+Mobility: 		-4
+Speed: 			-8
+Push: 			4
+Destroy:		18
+
+
+#balance affected by advantage stat when you attack for both you and foe
+
+Hidden:
+Accuracy Thrown: -50 	#only need to know about this for specialized throwing weapons. Info about throwing accuracy could be found in the description, just giving a vague understanding of its throwing capacity. After all, weapons not designed for throwing would not have their throwing ability necessarily be tested and measured and whatnot.
+
+
+
+Balance:
+	Your poise stat determines your maximum balance.
+	You begin a game with full balance on each character.
+	Using attacks, skills, moving through certain terrain, or being attacked may alter your balance.
+	The more balance you have, the more resistance you have to being pushed, pulled, and knocked down.
+	If you have 0 balance, you have no resistance whatsoever to being knocked around; in addition, each turn you have a 25% chance to automatically fall down when you attack, move, or are attacked.
+	Balance Table:
+	Balance		Resistance to being moved 		Res. to being knocked down
+	0			0								0
+	1			8								25
+	2			15								50
+	3			25								75
+	4			36								85
+	5			45								90
+	6			53								93
+	7			61								96
+	8			68								98
+	9			74								99
+	10			79								100
+	11			83
+	12			85
+	13			87
+	14			88
+	15			89
+	16			90
+	17			91
+	18			92
+	19			93
+	20			94
+	21			95
+	22			96
+	23			97
+	24			98
+	25			99
+	26			100
+	
+Functions:
+	Res to being moved: function of linear + shifted quadratic
+	Res to being knocked down: function of logarithmic growth 
+	
+Fallen:
+	When you get knocked down or fall over, you become fallen.
+	While fallen, your Accuracy, Evasion, Attack, Defense, and Protection are all cut in half.
+	You can resist knockdown by a saving throw to Balance.
+	You can recover from knockdown by rolling against Endurance.
+
+Advantage:
+	In situations where two parties are grappling or their weapons are making contact (such as in a parry or block), the one with the greater Advantage, truly, has the advantage.
+	If your opponent parries your attack but your weapon has greater advantage than his parrying weapon, you can overcome the parry and strike anyway; same goes for blocking.
+	
+	
+SKILLS
+
+Guns:
+	Bayonet Jab
+		*requirements: melee attack with gun; bayonet attachment*
+		Reach 2-3
+		Atk -5 / +3+n
+		+2 vs. Unarmoured
+		Spd +n
+		Acc -15+n
+		Crit +n
+	Butt Strike
+		*requirements: melee attack with gun*
+		Reach 1-1
+		Atk +3+n / -99
+		Acc +5+n
+		Spd +5+n
+		Crit -10
+	Barrel Blow
+		*requirements: melee attack with gun*
+		Reach 2-2
+		Atk +3+n / -99
+		Acc +15+n
+		Spd -10+n
+		Crit -15
+	Gun Grapple
+		*requirements: grapple with gun*
+		Grapple +n
+	
+	
+
+
+
+
+
+
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+
+
+		
+Example item display:
+
+Mouse over anything for more info
+	guard - chance to block melee attacks
+	shield - chance to block missiles
+	protect - chance to guard or shield an ally
+			
+	------------------------------------------------------------------------------
+				> quarterstaff
+			Desc : "The quarterstaff is the most basic of pollarms, ..."
+	--Item Stats:-----------------------------------------------------------------
+			Type						Weapon (Pollarm)
+			Hands						2-handed
+			Condition					180 / 180
+			Value			  		  	55 gold
+			Mass						1.75 kg
+			Size						Normal
+			
+	--Offense : (Melee)---------------Defense :-----------------------------------
+	Strike			12		|		Strike Def		8	 |	Guard			36
+	Thrust			0		|		Thrust Def		6	 |	Shield			4
+	Slash			0		|		Slash Def		16	 |	Protect			0
+	
+	--Weapon Stats:---------------------------------------------------------------
+		Required attrib.			STR :	4			DEX :	2
+		Damage scaling				STR :	B			DEX :	D
+		
+			Reach				2 - 3
+			Penetration			0
+			Accuracy			6
+			Evasion				-3
+			Mobility			-7
+			Speed				7
+			Parry				22
+			Parry for ally 		16
+			Counter				12
+			
+	--Bonuses:--------------------------------------------------------------------
+			Hit adjacent foe	33
+			Push				6
+	------------------------------------------------------------------------------
+
+	
+	
+	
+	
+	------------------------------------------------------------
+		> short bow
+	Desc : "This quick-fire bow is easy to wield, but lacks power..."
+	------------------------------------------------------------
+	Type						Ranged (Bow)
+	Hands						2-handed
+	Damage scaling				STR :	-			DEX :	A
+	Required attrib.			STR :	5			DEX :	5
+	Condition					70 / 70
+	Value			  		  	32 gold
+	Mass						1.5 kg
+	Size						normal
+	----Offense : (Missile)-------------Defense :---------------
+	Strike				0			Strike				0
+	Slash				0			Slash				0
+	Thrust				5			Thrust				0
+									Block Melee :		0
+									Block Missile :		0
+	------------------------------------------------------------
+	Range				3 - 45
+	Penetration			5
+	Mobility			-3
+	Speed				-18
+	Accuracy			28
+	Evasion				-10
+	------------------------------------------------------------
+	Reload time			1 turns
+	------------------------------------------------------------
+
+		
+		
+Hidden:
+	material
+	balance damage (AKA stagger)
+	maximum grind
+	
+Description screen
+
+	------------------Description-------------------
+	The quarterstaff is the most basic of pollarms,
+	consisting of only a long pole. It is very
+	effective and fast due to its reach and light
+	weight.
+	------------------------------------------------
+	
+	
+	Defense :
+		Strike				8
+		Thrust				12
+		Slash				16
+		Block Melee			36
+		Block Missile		0
+
+
+		
+		
+		
+		
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
+		REMOVED IDEAS
+		
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		
+
+To simplify, techniques encompass the following:
+Slash
+Strike
+Thrust
+Grapple
+Parry riposte
+
